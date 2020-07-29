@@ -18,7 +18,7 @@ mongoose.set("useFindAndModify", false);
 mongoose.connect(process.env.DB_CONNECT, { useNewUrlParser: true }, () => {
 	console.log("Connected to DB!");
 
-	app.listen(3000, () => console.log("Server Up and running boye!"));
+	app.listen(process.env.PORT || 3000, () => console.log("Server Up and running boye!"));
 });
 
 // View engine config
