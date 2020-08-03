@@ -23,12 +23,14 @@ mongoose.connect(process.env.DB_CONNECT, { useNewUrlParser: true }, () => {
 
 // View engine config
 app.set("view engine", "ejs");
+console.log("Engine set to ejs!");
 
 
 // GET method
 app.get("/", (req, res) => {
 	TodoTask.find({}, (err, tasks) => {
 		res.render("todo.ejs", { todoTasks: tasks });
+		console.log("Tasks rendered!");
 	});
 });
 
@@ -51,6 +53,7 @@ app.route("/edit/:id").get((req, res) => {
 	const id = req.params.id;
 	TodoTask.find({}, (err, tasks) => {
 		res.render("todoEdit.ejs", { todoTasks: tasks, idTask: id });
+		console.log("Edit screen rendered!");
 	});
 }).post((req, res) => {
 	const id = req.params.id;
