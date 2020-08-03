@@ -28,6 +28,7 @@ console.log("Engine set to ejs!");
 
 // GET method
 app.get("/", (req, res) => {
+	console.log("Getting info from database!")
 	TodoTask.find({}, (err, tasks) => {
 		res.render("todo.ejs", { todoTasks: tasks });
 		console.log("Tasks rendered!");
